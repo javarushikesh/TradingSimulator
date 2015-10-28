@@ -1,5 +1,8 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+
+<tiles:importAttribute name="javascripts"/>
+<tiles:importAttribute name="stylesheets"/>
   
 <html>  
 <head>
@@ -12,14 +15,11 @@
 
     <title>Modern Business - Start Bootstrap Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="<c:url value="/resources/css/modern-business.css" />" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="<c:url value="/resources/font-awesome/css/font-awesome.min.css" />" rel="stylesheet" type="text/css">
+	<!-- stylesheets -->
+    <c:forEach var="css" items="${stylesheets}">
+        <link rel="stylesheet" type="text/css" href="<c:url value="${css}"/>">
+    </c:forEach>
+    <!-- end stylesheets -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,17 +33,18 @@
         <tiles:insertAttribute name="header" />  
         <tiles:insertAttribute name="body" />  
         <tiles:insertAttribute name="footer" />  
-    <!-- jQuery -->
-    <script src="<c:url value="/resources/js/jquery.js" />"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+    <!-- scripts -->
+    <c:forEach var="script" items="${javascripts}">
+        <script src="<c:url value="${script}"/>"></script>
+    </c:forEach>
+    <!-- end scripts -->
 
     <!-- Script to Activate the Carousel -->
     <script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
-    </script>  
+    </script>
 </body>  
 </html>  

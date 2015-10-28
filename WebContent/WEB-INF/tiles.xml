@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE tiles-definitions PUBLIC
       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
-      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
-<tiles-definitions>  
-    <definition name="base.definition"  
-        template="/WEB-INF/jsp/templates/layout.jsp">  
-        <put-attribute name="title" value="" />  
-        <put-attribute name="header" value="/WEB-INF/jsp/templates/header.jsp" />  
-        <put-attribute name="body" value="" />  
-        <put-attribute name="footer" value="/WEB-INF/jsp/templates/footer.jsp" />  
-    </definition>  
-  
-    <definition name="welcome" extends="base.definition">  
-        <put-attribute name="title" value="Welcome" />  
-        <put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />  
-    </definition>
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/jsp/templates/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/templates/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/templates/footer.jsp" />
+		<put-list-attribute name="javascripts">
+			<add-attribute value="/resources/js/jquery.js" />
+			<add-attribute value="/resources/js/bootstrap.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="/resources/css/bootstrap.min.css" />
+			<add-attribute value="/resources/css/modern-business.css" />
+			<add-attribute value="/resources/font-awesome/css/font-awesome.min.css" />
+		</put-list-attribute>
+	</definition>
 
-    <definition name="login" extends="base.definition">  
-		<put-attribute name="header" value="" />    
-        <put-attribute name="title" value="Welcome" />  
-        <put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />  
-    </definition>      
+	<definition name="welcome" extends="base.definition">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />
+	</definition>
 
-    <definition name="signup" extends="base.definition">  
-		<put-attribute name="header" value="" />    
-        <put-attribute name="title" value="Sign Up" />  
-        <put-attribute name="body" value="/WEB-INF/jsp/signup.jsp" />  
-    </definition>
-  
+	<definition name="login" extends="base.definition">
+		<put-attribute name="header" value="" />
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute value="/resources/appjs/login.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="signup" extends="base.definition">
+		<put-attribute name="header" value="" />
+		<put-attribute name="title" value="Sign Up" />
+		<put-attribute name="body" value="/WEB-INF/jsp/signup.jsp" />
+	</definition>
+
 </tiles-definitions>  
