@@ -1,8 +1,5 @@
     <br>
     <br>
-    <br>
-    <br>
-    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -14,10 +11,10 @@
                         <form role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required >
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -25,7 +22,10 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
+                                <div><br>
+                                    <h5 class="panel-text">Not a Member? Please <a href="/TradingSimulator/signup">Sign Up</a></h5>
+                                </div>
                             </fieldset>
                         </form>
                     </div>
