@@ -1,3 +1,4 @@
+    <%@ include file="/WEB-INF/jsp/templates/taglibs.jsp" %>
     <br>
     <br>
     <div class="container">
@@ -8,14 +9,10 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form:form role="form" method="post" modelAttribute="user">
                             <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" required autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required >
-                                </div>
+								<tradsim:inputField name="email" label="Email"/>
+                                <tradsim:passwordField name="password" label="Password"/>
                                 <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
@@ -27,7 +24,7 @@
                                     <h5 class="panel-text">Not a Member? Please <a href="/TradingSimulator/signup">Sign Up</a></h5>
                                 </div>
                             </fieldset>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>
