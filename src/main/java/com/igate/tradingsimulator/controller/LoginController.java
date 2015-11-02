@@ -12,13 +12,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.igate.tradingsimulator.model.User;
+import com.igate.tradingsimulator.model.UserDetails;
  
 @Controller
 public class LoginController {
  
-	@RequestMapping("/signup")
-	public String signup() {
- 		return "signup";
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signup(Map<String, Object> model) {
+		UserDetails userDtls = new UserDetails();
+        model.put("userDtls", userDtls);
+        return "signup";
+	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signup(@Valid @ModelAttribute("userDtls") UserDetails userDtls,
+            BindingResult result, Map<String, Object> model) {
+		if (result.hasErrors()) {
+            return "signup";
+        }else{
+        	User user = new User();
+        	user.setEmail(userDtls.getEmail());
+	        model.put("user", user);
+        	return "login";
+        }
 	}
 	
 	@RequestMapping("/welcome")

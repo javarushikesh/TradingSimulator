@@ -10,6 +10,6 @@
     <c:set var="cssGroup" value="form-group ${status.error ? 'has-error' : '' }"/>
     <div class="${cssGroup}">
         <form:input path="${name}" class="form-control" placeholder="${label}"/>
-        <span class="help-inline">${status.errorMessage}</span>
+        <span class="help-inline text-danger">${status.errorMessage}</span>
     </div>
 </spring:bind>

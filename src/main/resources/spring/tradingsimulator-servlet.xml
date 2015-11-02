@@ -10,6 +10,9 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
  
 	<context:component-scan base-package="com.igate.tradingsimulator.controller" />
+	<mvc:annotation-driven/>
+
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
  
 	<bean id="viewResolver"  
         class="org.springframework.web.servlet.view.UrlBasedViewResolver">  
@@ -37,6 +40,5 @@
 	</bean-->
 
 	<mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
-	<mvc:annotation-driven />
- 
+
 </beans>

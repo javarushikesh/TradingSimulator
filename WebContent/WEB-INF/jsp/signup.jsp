@@ -1,3 +1,4 @@
+    <%@ include file="/WEB-INF/jsp/templates/taglibs.jsp" %>
     <br>
     <br>
     <div class="container">
@@ -8,23 +9,13 @@
                         <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form:form role="form" method="post" modelAttribute="userDtls">
                             <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="First Name" name="firstname" type="text" required autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Last Name" name="lastname" type="text" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Confirm Password" name="confpassword" type="password" value="" required>
-                                </div>
+                                <tradsim:inputField name="firstName" label="First Name"/>
+                                <tradsim:inputField name="lastName" label="Last Name"/>
+                                <tradsim:inputField name="email" label="Email"/>
+                                <tradsim:passwordField name="password" label="Password"/>
+                                <tradsim:passwordField name="confirmPassword" label="Confirm Password"/>
                                 <div class="checkbox">
                                     <label>
                                         <input name="agreetoterms" type="checkbox" value="Agree To Terms">Agree To Terms
@@ -36,7 +27,7 @@
                                     <h5 class="panel-text">Already a Member? Please <a href="/TradingSimulator/login">Log In</a></h5>
                                 </div>
                             </fieldset>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>
